@@ -62,41 +62,45 @@ do
     
     if [ "$CMD_CRAWL_OPT" -eq 1 ] ; then
         #wget --no-check-certificate -a crawl_reitdata.log -w 5 -t 5 -O data/$reit_filename $reit_url
-        curl \
-        -X POST \
-        -d '{"id":"'${reit_code}'"}' \
-        -H 'Accept: application/json, text/javascript, */*; q=0.01' \
-        -H 'Accept-Encoding: gzip, deflate, br' \
-        -H 'Accept-Language: en-US,en;q=0.5' \
-        -H 'Cache-Control: no-cache' \
-        -H 'Connection: keep-alive' \
-        -H 'Content-Type: application/json' \
-        -H 'Cookie: _ga=GA1.1.1692100892.1474510770' \
-        -H 'Host: sgx-premium.wealthmsi.com' \
-        -H 'Referer: https://sgx-premium.wealthmsi.com/company-tearsheet.html?code=N21' \
-        -H 'User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0' \
-        -H 'X-Requested-With: XMLHttpRequest' \
-        --insecure \
-        https://sgx-premium.wealthmsi.com/sgx/company | gzip -d > data/$reit_filename
+        #curl \
+        #-X POST \
+        #-d '{"id":"'${reit_code}'"}' \
+        #-H 'Accept: application/json, text/javascript, */*; q=0.01' \
+        #-H 'Accept-Encoding: gzip, deflate, br' \
+        #-H 'Accept-Language: en-US,en;q=0.5' \
+        #-H 'Cache-Control: no-cache' \
+        #-H 'Connection: keep-alive' \
+        #-H 'Content-Type: application/json' \
+        #-H 'Cookie: _ga=GA1.1.1692100892.1474510770' \
+        #-H 'Host: sgx-premium.wealthmsi.com' \
+        #-H 'Referer: https://sgx-premium.wealthmsi.com/company-tearsheet.html?code=N21' \
+        #-H 'User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0' \
+        #-H 'X-Requested-With: XMLHttpRequest' \
+        #--insecure \
+        #https://sgx-premium.wealthmsi.com/sgx/company | gzip -d > data/$reit_filename
+        
+        curl http://www.shareinvestor.com/fundamental/factsheet.html?counter=${reit_code}.SI > data/$reit_filename
     fi
     
-    prev_closed=`grep -Eo '"previousClosePrice":[0-9]+.[0-9]+' data/$reit_filename | grep -Eo '[0-9]+.[0-9]+'`
+    prev_closed=`grep -E 'sic_lastdone' data/$reit_filename | grep -Eo '[0-9]+.[0-9]+'`
     echo $prev_closed
     
     reit_other_data=`grep -E "$reit_code" reitdata_editable.txt`
     
     current_period=""
     current_dpu=""
+    current_ttl_dpu=""
     current_yield=""
     current_nav=""
     current_gearing=""
     current_asset_type=""
+    
     if [ ! -z "$reit_other_data" ] ; then
-        IFS='|' read var1 var2 current_period var3 current_dpu current_yield current_nav current_gearing current_asset_type <<< "$reit_other_data"
+        IFS='|' read var1 var2 current_period var3 current_dpu current_ttl_dpu current_yield current_nav current_gearing current_asset_type <<< "$reit_other_data"
 
         json_current="{ " 
         json_current="${json_current}\"code\": \"${reit_code}\", \"descr\": \"${reit_name}\", \"prevClosed\": \"${prev_closed}\""
-        json_current="${json_current}, \"period\": \"${current_period}\", \"dpu\": \"${current_dpu}\", \"yield\": \"${current_yield}\""
+        json_current="${json_current}, \"period\": \"${current_period}\", \"dpu\": \"${current_dpu}\", \"ttlDpu\": \"${current_ttl_dpu}\", \"yield\": \"${current_yield}\""
         json_current="${json_current}, \"nav\": \"${current_nav}\", \"gearing\": \"${current_gearing}\", \"assetType\": \"${current_asset_type}\""
         json_current="${json_current} }"
         
@@ -110,4 +114,3 @@ do
 done
 
 echo -e "var reitDatas = [\n${json_data}\n];" > reit_data.js
-    
