@@ -2,7 +2,11 @@ var app = angular.module('reitDataApp', []);
 
 app.controller('reitDataCtrl', ['$scope', '$window', function($scope, $window) {
     $scope.reitDatas = $window.reitDatas;
-    $scope.sortBy = "descr";
+    $scope.otherDatas = $window.otherDatas;
+    $scope.shippingDatas = $window.shippingDatas;
+    $scope.sortBy = "";
+    $scope.sortByOther = "";
+    $scope.sortByShipping = "";
     $scope.debugMode = true;
   
     $scope.init = function() {
