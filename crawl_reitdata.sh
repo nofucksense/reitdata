@@ -79,6 +79,7 @@ fi
 
 for reit_code in `cut -d '|' -f 2 ${data_code_filename}`
 do
+    prev_closed_currency=""
     echo $reit_code
     reit_name=`grep -E "$reit_code" ${data_code_filename} | cut -d '|' -f 1`
     echo $reit_name
@@ -114,20 +115,30 @@ do
     fi
 
     prev_closed=`grep -E 'sic_lastdone' data/$reit_filename | grep -Eo '[0-9]+.[0-9]+'`
-    echo $prev_closed
+    echo "Price: $prev_closed"
+    prev_closed_currency=`grep -E 'sic_lastdone' data/$reit_filename | grep -Eo '\([A-Z]+\)' | sed -r 's:[\(|\)]+::g'`
+    echo "Currency: $prev_closed_currency"
 
     reit_other_data=`grep -E "$reit_code" ${edittable_filename}`
 
     current_period=""
     current_dpu=""
     current_ttl_dpu=""
+    current_ttl_dpu_currency=""
     current_yield=""
     current_nav=""
     current_gearing=""
     current_asset_type=""
 
     if [ ! -z "$reit_other_data" ] ; then
-        IFS='|' read var1 var2 current_period var3 current_dpu current_ttl_dpu current_yield current_nav current_gearing current_asset_type <<< "$reit_other_data"
+        IFS='|' read var1 var2 current_period var3 current_dpu current_ttl_dpu current_ttl_dpu_currency current_yield current_nav current_gearing current_asset_type <<< "$reit_other_data"
+        
+        if [ ! -z "$prev_closed_currency" ] && [ ! "$prev_closed_currency" = "${current_ttl_dpu_currency}" ] ; then
+            if [ ! -z "$current_ttl_dpu" ] && (( $(echo "$current_ttl_dpu > 0" | bc -l) )) ; then
+                current_ttl_dpu=`curl "http://www.xe.com/currencyconverter/convert/?Amount=${current_ttl_dpu}&From=${current_ttl_dpu_currency}&To=${prev_closed_currency}" | grep -Eo 'uccResultAmount..[0-9]+.[0-9]+' | grep -Eo '[0-9]+.[0-9]+'`
+                echo "Ttl DPU Price ${prev_closed_currency}: $current_ttl_dpu"
+            fi
+        fi
 
         json_current="{ "
         json_current="${json_current}\"code\": \"${reit_code}\", \"descr\": \"${reit_name}\", \"prevClosed\": \"${prev_closed}\""

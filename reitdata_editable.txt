@@ -1,38 +1,38 @@
-#Code|REIT|Period|Mkt|DPU cts|Ttl DPU cts|Yield|NAV|Gearing|Assets Type
-T8B|Viva Ind Tr|Q3 - Sep16|0.755|1.810|0.000|9.538%|$0.803|39.80%|Industrial (8) : Biz Park (59%) + Light Industrial (25%) + Hotel (10%) + Logistics (6%) by Revenue
-M1GU|Sabana REIT|Q3 - Sep16|0.440|1.200|0.000|10.841%|$0.790|41.50%|Industrial (21)
-D5IU|Lippo Malls Tr|Q3 - Sep16|0.365|0.860|0.000|9.425%|$0.392|32.70%|Retail (Indonesia) - 19
-K2LU|Cache Log Trust|Q3 - Sep16|0.820|1.847|0.000|8.961%|$0.830|41.20%|Industrial (19) : Singapore (85%) + Australia (14%) + China (1%) by Gross Revenue
-SV3U|SoilbuildBizREIT|Q3 - Sep16|0.640|1.399|0.000|8.744%|$0.770|36.00%|Industrial (12) : Business Park 35% + Industrial 65% by NPI
-O5RU|AIMSAMP Cap Reit|Q2 - Sep16|1.290|2.750|0.000|8.760%|$1.466|34.00%|Industrial (26) : Singapore + Australia
-UD1U|IREIT Global|Q3 - Sep16|0.720|1.570|0.000|8.722%|$0.631|42.50%|Offices : Germany (5)
-BMGU|BHG Retail Reit|Q3 - Sep16|0.640|1.290|0.000|8.063%|$0.800|30.50%|Retail (China) - 5
-TS0U|OUE Com Reit|Q3 - Sep16|0.685|1.320|0.000|7.708%|$0.890|40.80%|Office (83.1%) + Retail (16.9%) ; Singapore (79.9%) + China (20.1%) by Revenue
-ND8U|Frasers Com Tr|Q4 - Sep16|1.250|2.453|0.000|7.850%|$1.520|36.00%|Singapore (55%) + Australia (45%) by NPI
-Q1P|Ascendas-hTrust|1H - Sep16|0.690|2.670|0.000|7.739%|$0.880|32.40%|Hotels (11) : Australia (52%) + Japan (26%) + Singapore (13%) + China (9%) by NPI
-SK7|OUE Htrust|Q3 - Sep16|0.650|1.230|0.000|7.569%|$0.800|37.30%|Hotel (77.6%) + Retail (22.4%) by NPI
-Q5T|Far East HTrust|Q3 - Sep16|0.590|1.120|0.000|7.424%|$0.928|32.80%|Hotels (65%) + Commercial (20.9%) + Serviced Apts (14.1%) by Revenue
-RW0U|Mapletree GCC Tr|2H - Sep16|0.935|3.610|0.000|7.722%|$1.190|39.90%|Retail + Office : HK (69.4%) + China (30.6%) by NPI
-J85|CDL Htrust|Q3 - Sep16|1.320|2.440|0.000|7.500%|$1.559|36.70%|Hotels : Singapore (62.9%) + Australia (10.1%) + Maldives (7.3%) + NZ (8.1%) + Japan (3.7%) + UK (7.9%) by NPI
-ACV|FHT|2H - Sep16|0.650|2.335|0.000|7.184%|$0.829|37.70%|Hotel (9) + Serviced Apt (6) : Australia (30%) + Singapore (25%) + UK (21%) + Japan (12%) + Malaysia (7%) + Germany (5%) by NPI
-J91U|Cambridge Ind Tr|Q3 - Sep16|0.530|0.987|0.000|7.449%|$0.669|36.90%|Industrial (50)
-M44U|Mapletree Log Tr|Q2 - Sep16|1.005|1.860|0.000|7.403%|$0.990|37.60%|Industrial (124)
-A68U|Ascott Reit|Q3 - Sep16|1.140|2.350|8.293|7.275%|$1.300|41.00%|Serviced Apts (90) : Key Mkt (87.8%) + R.O.W (12.2%) by Valuation
-BUOU|Frasers L&I Tr|1H - Sep16|0.925|1.840|0.000|7.049%|$0.910|28.20%|Industrial (Australia) - 53
-ME8U|Mapletree Ind Tr|Q2 - Sep16|1.620|2.830|0.000|6.988%|$1.370|29.00%|Industrial (85)
-P40U|StarhillGbl Reit|Q1 - Sep16|0.740|1.300|0.000|6.986%|$0.910|35.10%|Retail (87.2%) + Office (12.8%) ; Singapore (63.4%) + Australia (21.2%) + Malaysia (12.7%) + Others (2.7%) by Revenue
-AU8U|CapitaR China Tr|Q3 - Sep16|1.350|2.360|0.000|6.956%|$1.540|36.70%|Retail (China) - 11
-AW9U|First REIT|Q3 - Sep16|1.255|2.120|8.470|6.749%|$1.029|30.00%|Hospitals (12 - 1 in S Korea) + Hotel (Indonesia - 2) + Nursing Home (Singapore - 3)
-BTOU|ManulifeREIT USD|FY16 - IPO|0.830|3.650|0.000|6.552%|$0.780|36.80%|Offices : USA (3)
-A17U|Ascendas Reit|1H - Sep16|2.280|7.791|15.147|6.643%|$2.030|34.20%|Industrial (131) : Singapore (85%) + Australia (13%) + China (2%) by Valuation
-AJBU|Keppel DC REIT|Q3 - Sep16|1.205|1.900|0.000|6.307%|$0.889|29.40%|Data Centres - 9 + 1 (Under Devt)
-J69U|Frasers Cpt Tr|Q4 - Sep16|1.895|2.815|0.000|6.231%|$1.930|28.30%|Retail (6) + 31.17% of Hektar (MREIT)
-C61U|CapitaCom Trust|Q3 - Sep16|1.485|2.300|0.000|6.195%|$1.720|37.80%|Office (69%) + Retail (18%) + Hotel (13%) by Gross Rental Income
-K71U|Keppel Reit|Q3 - Sep16|1.010|1.600|0.000|6.337%|$1.410|39.00%|Office (8) : Singapore (90%) + Australia (10%) by Asset Value
-T82U|Suntec Reit|Q3 - Sep16|1.655|2.535|10.157|6.137%|$2.102|37.80%|Office (68%) + Retail (26%) + Convention (6%) by Income
-SK6U|SPHREIT|Q4 - Aug16|0.945|1.410|5.500|5.820%|$0.940|25.70%|Retail (2)
-C38U|CapitaMall Trust|Q3 - Sep16|1.890|2.780|0.000|5.889%|$1.860|35.40%|Retail (16) + Office
-N2IU|Mapletree Com Tr|Q2 - Sep16|1.395|2.050|0.000|5.864%|$1.320|37.30%|Retail + Office
-F25U|Fortune Reit HKD|1H - Jun16|8.550|24.780|0.000|5.796%|$12.770|29.80%|Retail (HK) - 17
-C2PU|ParkwayLife Reit|Q3 - Sep16|2.370|3.060|0.000|5.165%|$1.640|38.20%|Hospitals + Nursing Homes = 48 : Singapore 58% + Japan 42% by Gross Revenue
-T8JU|Saizen REIT|2H - Jun15|0.051|2.930|0.000|0.000%|$1.210|35.00%|Residential (Japan) - 136
+#Code|REIT|Period|Mkt|DPU cts|Ttl DPU cts|Ttl CPU Curency|Yield|NAV|Gearing|Assets Type
+O5RU|AIMSAMP Cap Reit|Q2 - Sep16|1.280|2.750|11.300|SGD|8.760%|$1.466|34.00%|Industrial (26) : Singapore + Australia
+A17U|Ascendas Reit|1H - Sep16|2.250|7.791|15.147|SGD|6.643%|$2.030|34.20%|Industrial (131) : Singapore (85%) + Australia (13%) + China (2%) by Valuation
+Q1P|Ascendas-hTrust|1H - Sep16|0.700|2.670|5.340|SGD|7.739%|$0.880|32.40%|Hotels (11) : Australia (52%) + Japan (26%) + Singapore (13%) + China (9%) by NPI
+A68U|Ascott Reit|Q3 - Sep16|1.130|2.350|8.293|SGD|7.275%|$1.300|41.00%|Serviced Apts (90) : Key Mkt (87.8%) + R.O.W (12.2%) by Valuation
+BMGU|BHG Retail Reit|Q3 - Sep16|0.605|1.290|5.160|SGD|8.063%|$0.800|30.50%|Retail (China) - 5
+K2LU|Cache Log Trust|Q3 - Sep16|0.810|1.847|7.348|SGD|8.961%|$0.830|41.20%|Industrial (19) : Singapore (85%) + Australia (14%) + China (1%) by Gross Revenue
+J91U|Cambridge Ind Tr|Q3 - Sep16|0.535|0.987|3.948|SGD|7.449%|$0.669|36.90%|Industrial (50)
+C61U|CapitaCom Trust|Q3 - Sep16|1.450|2.300|9.200|SGD|6.195%|$1.720|37.80%|Office (69%) + Retail (18%) + Hotel (13%) by Gross Rental Income
+C38U|CapitaMall Trust|Q3 - Sep16|1.870|2.780|11.130|SGD|5.889%|$1.860|35.40%|Retail (16) + Office
+AU8U|CapitaR China Tr|Q3 - Sep16|1.330|2.360|9.390|SGD|6.956%|$1.540|36.70%|Retail (China) - 11
+J85|CDL Htrust|Q3 - Sep16|1.310|2.440|9.900|SGD|7.500%|$1.559|36.70%|Hotels : Singapore (62.9%) + Australia (10.1%) + Maldives (7.3%) + NZ (8.1%) + Japan (3.7%) + UK (7.9%) by NPI
+Q5T|Far East HTrust|Q3 - Sep16|0.590|1.120|4.380|SGD|7.424%|$0.928|32.80%|Hotels (65%) + Commercial (20.9%) + Serviced Apts (14.1%) by Revenue
+ACV|Frasers Htrust|2H - Sep16|0.650|2.335|4.670|SGD|7.184%|$0.829|37.70%|Hotel (9) + Serviced Apt (6) : Australia (30%) + Singapore (25%) + UK (21%) + Japan (12%) + Malaysia (7%) + Germany (5%) by NPI
+AW9U|First REIT|Q3 - Sep16|1.260|2.120|8.470|SGD|6.749%|$1.029|30.00%|Hospitals (12 - 1 in S Korea) + Hotel (Indonesia - 2) + Nursing Home (Singapore - 3)
+F25U|Fortune Reit HKD|1H - Jun16|8.550|24.780|49.556|SGD|5.796%|$12.770|29.80%|Retail (HK) - 17
+ND8U|Frasers Com Tr|Q4 - Sep16|1.240|2.453|9.812|SGD|7.850%|$1.520|36.00%|Singapore (55%) + Australia (45%) by NPI
+J69U|Frasers Cpt Tr|Q4 - Sep16|1.870|2.815|11.807|SGD|6.231%|$1.930|28.30%|Retail (6) + 31.17% of Hektar (MREIT)
+BUOU|Frasers L&I Tr|1H - Sep16|0.915|1.840|6.520|SGD|7.049%|$0.910|28.20%|Industrial (Australia) - 53
+UD1U|IREIT Global|Q3 - Sep16|0.725|1.570|6.280|SGD|8.722%|$0.635|42.50%|Offices : Germany (5)
+AJBU|Keppel DC REIT|Q3 - Sep16|1.160|1.900|7.600|SGD|6.307%|$0.889|29.40%|Data Centres - 9 + 1 (Under Devt)
+K71U|Keppel Reit|Q3 - Sep16|0.995|1.600|6.400|SGD|6.337%|$1.410|39.00%|Office (8) : Singapore (90%) + Australia (10%) by Asset Value
+D5IU|Lippo Malls Tr|Q3 - Sep16|0.365|0.860|3.440|SGD|9.425%|$0.392|32.70%|Retail (Indonesia) - 19
+BTOU|ManulifeREIT USD|FY16 - IPO|0.830|3.650|5.438|SGD|6.552%|$0.780|36.80%|Offices : USA (3)
+N2IU|Mapletree Com Tr|Q2 - Sep16|1.380|2.050|8.180|SGD|5.864%|$1.320|37.30%|Retail + Office
+RW0U|Mapletree GCC Tr|2H - Sep16|0.930|3.610|7.220|SGD|7.722%|$1.190|39.90%|Retail + Office : HK (69.4%) + China (30.6%) by NPI
+ME8U|Mapletree Ind Tr|Q2 - Sep16|1.610|2.830|11.320|SGD|6.988%|$1.370|29.00%|Industrial (85)
+M44U|Mapletree Log Tr|Q2 - Sep16|0.995|1.860|7.440|SGD|7.403%|$0.990|37.60%|Industrial (124)
+TS0U|OUE Com Reit|Q3 - Sep16|0.690|1.320|5.280|SGD|7.708%|$0.890|40.80%|Office (83.1%) + Retail (16.9%) ; Singapore (79.9%) + China (20.1%) by Revenue
+SK7|OUE Htrust|Q3 - Sep16|0.650|1.230|4.920|SGD|7.569%|$0.800|37.30%|Hotel (77.6%) + Retail (22.4%) by NPI
+C2PU|ParkwayLife Reit|Q3 - Sep16|2.340|3.060|12.240|SGD|5.165%|$1.640|38.20%|Hospitals + Nursing Homes = 48 : Singapore 58% + Japan 42% by Gross Revenue
+M1GU|Sabana REIT|Q3 - Sep16|0.450|1.200|4.770|SGD|10.841%|$0.790|41.50%|Industrial (21)
+T8JU|Saizen REIT|2H - Jun15|0.051|2.930|0.000|SGD|0.000%|$1.210|35.00%|Residential (Japan) - 136
+SV3U|SoilbuildBizREIT|Q3 - Sep16|0.640|1.399|5.596|SGD|8.744%|$0.770|36.00%|Industrial (12) : Business Park 35% + Industrial 65% by NPI
+SK6U|SPHREIT|Q4 - Aug16|0.930|1.410|5.500|SGD|5.820%|$0.940|25.70%|Retail (2)
+P40U|StarhillGbl Reit|Q1 - Sep16|0.735|1.300|5.170|SGD|6.986%|$0.910|35.10%|Retail (87.2%) + Office (12.8%) ; Singapore (63.4%) + Australia (21.2%) + Malaysia (12.7%) + Others (2.7%) by Revenue
+T82U|Suntec Reit|Q3 - Sep16|1.615|2.535|10.157|SGD|6.137%|$2.102|37.80%|Office (68%) + Retail (26%) + Convention (6%) by Income
+T8B|Viva Ind Tr|Q3 - Sep16|0.755|1.810|7.201|SGD|9.538%|$0.803|39.80%|Industrial (8) : Biz Park (59%) + Light Industrial (25%) + Hotel (10%) + Logistics (6%) by Revenue
