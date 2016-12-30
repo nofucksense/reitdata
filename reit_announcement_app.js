@@ -41,6 +41,7 @@ app
     }
     
     $scope.fetchData = function() {
+        $scope.error = "Loading ...";
         if ($scope.debugMode) {
             console.log("period: " + JSON.stringify($scope.period));
             console.log("issuer: " + JSON.stringify($scope.issuer));
@@ -231,7 +232,7 @@ function FocusService() {
     }
 }
 
-$(document).ready(function() {
+//$(document).ready(function() {
 //    $.getScript('https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.8/select2.min.js',function() {
 
 //        $('#period').select2({
@@ -247,4 +248,4 @@ $(document).ready(function() {
 //        });
     
 //    });//script
-});
+//});

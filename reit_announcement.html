@@ -2,38 +2,66 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://use.fontawesome.com/edca3d70e6.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        
-        <!-- Select2 -->
-        <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.8/select2.css"-->
-        <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.8/select2-bootstrap.css"-->
-        <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css"-->
-        
-        <!-- Google Analytics -->
-        <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+        <style>
+            label, input {
+                font-family:Verdana; font-size:7pt;
+            }
+            thead {
+                background-color: #00a7e2;
+                font-family:Verdana; font-size:7pt;
+                color: white;
+                font-weight: bold;
+            }
+            tbody {
+                font-family:Verdana; font-size:7pt;
+            }
+            table.table.table-striped>tbody>tr:nth-of-type(odd) {
+                background-color: #daeef3;
+            }
+            table.table.table-striped>tbody>tr>td:nth-child(1) {
+                background-color: #00a7e2;
+                color: white;
+            }
+            .container-fluid {
+            	padding-right: 0px !important; 
+            	padding-left: 0px !important;
+            	margin-right: auto;
+            	margin-left: auto;
+            }
+        </style>
+
         <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            var m = new Date();
+            var dateString = m.getUTCFullYear() +"_"+ (m.getUTCMonth()+1) +"_"+ m.getUTCDate();
+
+            var prefix = "";
+            if (location.host === "") {
+                prefix = "";
+            } else {
+                prefix = "/reitdata/";
+            }
             
-            ga('create', 'UA-0000000-0', 'auto');
-            ga('send', 'pageview');
-        </script>
+            document.write("<script src='" + prefix + "AnnouncementByTimePeriod.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "AnnouncementByIssuer.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "AnnouncementBySecurity.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "reit_announcement_app.js?v=" + dateString + "'><\/script>");
+        </script>    
     </head>
-    <body ng-app="reitAnnouncementApp" ng-controller="reitAnnouncementDataCtrl" ng-init="init()" ng-enter="fetchData()">
-        <div class="container-fluid">
+    <body>
+        <div ng-app="reitAnnouncementApp" ng-controller="reitAnnouncementDataCtrl" ng-init="init()" ng-enter="fetchData()" class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <form class="form-horizontal" ng-submit="fetchData()">
                         <div class="form-group">
                             <label for="period" class="col-md-4 control-label">Announcement Period:</label>
                             <div class="col-md-8">
-                                <select id="period" name="prd" class="form-control" style="max-width: 50%;" ng-model="period" 
+                                <select id="period" name="prd" class="form-control" style="max-width: 50%;" ng-model="period"
                                     ng-options="AnnouncementByTimePeriod.DisplayName for AnnouncementByTimePeriod in AnnouncementByTimePeriods">
                                 </select>
                             </div>
@@ -92,29 +120,29 @@
                     <p>{{ error }}</p>
                 </div>
             </div>
-            <div class="row" ng-if="pager.pages.length || debugMode">
+            <div id="topPager" class="row" ng-if="pager.pages.length || debugMode">
                 <div class="col-md-12">
                     <nav aria-label="Page navigation">
                         <ul class="pagination pagination-sm pull-right">
                             <li ng-class="{disabled:pager.currentPage === 1}">
-                                <a href="#" ng-click="setPage(1); fetchData()"><span aria-hidden="true">First</span></a>
+                                <a href="#topPager" ng-click="setPage(1); fetchData()"><span aria-hidden="true">First</span></a>
                             </li>
                             <li ng-class="{disabled:pager.currentPage === 1}">
-                                <a href="#" ng-click="setPage(pager.currentPage - 1); fetchData()"><span aria-hidden="true">&laquo;</span></a>
+                                <a href="#topPager" ng-click="setPage(pager.currentPage - 1); fetchData()"><span aria-hidden="true">&laquo;</span></a>
                             </li>
                             <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
-                                <a href="#" ng-click="setPage(page); fetchData()">{{ page }}</a>
+                                <a href="#topPager" ng-click="setPage(page); fetchData()">{{ page }}</a>
                             </li>
                             <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
-                                <a ng-href="#" ng-click="setPage(pager.currentPage + 1); fetchData()"><span aria-hidden="true">&raquo;</span></a>
+                                <a ng-href="#topPager" ng-click="setPage(pager.currentPage + 1); fetchData()"><span aria-hidden="true">&raquo;</span></a>
                             </li>
                             <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
-                                <a ng-href="#" ng-click="setPage(pager.totalPages); fetchData()"><span aria-hidden="true">Last</span></a>
+                                <a ng-href="#topPager" ng-click="setPage(pager.totalPages); fetchData()"><span aria-hidden="true">Last</span></a>
                             </li>
                         </ul>
                     </nav>
                 </div>
-            </div>                   
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
@@ -128,11 +156,11 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th class="text-center">Date</th>
-                                    <th class="text-center">Time</th>
-                                    <th class="text-center">Company Name</th>
-                                    <th class="text-center">Security Name</th>
-                                    <th class="text-center">Announcement Title</th>
+                                    <td class="text-center">Date</td>
+                                    <td class="text-center">Time</td>
+                                    <td class="text-center">Company Name</td>
+                                    <td class="text-center">Security Name</td>
+                                    <td class="text-center">Announcement Title</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -143,7 +171,7 @@
                                     <td>{{ item.SecurityName }}</td>
                                     <td><a ng-href="{{ 'http://infopub.sgx.com/Apps?A=COW_CorpAnnouncement_Content&B=' + period.View + (filterby.security && security ? 'Security' : '') + '&F=' + item.key }}" target="_blank">{{ item.AnnTitle }}</a></td>
                                 </tr>
-                            </tbody>    
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -153,47 +181,24 @@
                     <nav aria-label="Page navigation">
                         <ul class="pagination pagination-sm pull-right">
                             <li ng-class="{disabled:pager.currentPage === 1}">
-                                <a href="#" ng-click="setPage(1); fetchData()"><span aria-hidden="true">First</span></a>
+                                <a href="#topPager" ng-click="setPage(1); fetchData()"><span aria-hidden="true">First</span></a>
                             </li>
                             <li ng-class="{disabled:pager.currentPage === 1}">
-                                <a href="#" ng-click="setPage(pager.currentPage - 1); fetchData()"><span aria-hidden="true">&laquo;</span></a>
+                                <a href="#topPager" ng-click="setPage(pager.currentPage - 1); fetchData()"><span aria-hidden="true">&laquo;</span></a>
                             </li>
                             <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
-                                <a href="#" ng-click="setPage(page); fetchData()">{{ page }}</a>
+                                <a href="#topPager" ng-click="setPage(page); fetchData()">{{ page }}</a>
                             </li>
                             <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
-                                <a ng-href="#" ng-click="setPage(pager.currentPage + 1); fetchData()"><span aria-hidden="true">&raquo;</span></a>
+                                <a ng-href="#topPager" ng-click="setPage(pager.currentPage + 1); fetchData()"><span aria-hidden="true">&raquo;</span></a>
                             </li>
                             <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
-                                <a ng-href="#" ng-click="setPage(pager.totalPages); fetchData()"><span aria-hidden="true">Last</span></a>
+                                <a ng-href="#topPager" ng-click="setPage(pager.totalPages); fetchData()"><span aria-hidden="true">Last</span></a>
                             </li>
                         </ul>
                     </nav>
                 </div>
-            </div>                   
+            </div>
         </div>
-        
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <!--
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> 
-        -->
-        <!--script src="https://use.fontawesome.com/edca3d70e6.js"></script-->
-        <!--script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script-->
-        
-        <!--script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script-->
-        <!--script type='text/javascript' src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script-->
-        <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-        
-        <script>
-            var m = new Date();
-            var dateString = m.getUTCFullYear() +"_"+ (m.getUTCMonth()+1) +"_"+ m.getUTCDate();
-            document.write("<script src='AnnouncementByTimePeriod.js?v=" + dateString + "'><\/script>");
-            document.write("<script src='AnnouncementByIssuer.js?v=" + dateString + "'><\/script>");
-            document.write("<script src='AnnouncementBySecurity.js?v=" + dateString + "'><\/script>");
-            document.write("<script src='reit_announcement_app.js?v=" + dateString + "'><\/script>");
-        </script>
     </body>
 </html>
