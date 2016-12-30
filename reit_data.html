@@ -9,10 +9,17 @@
         <script>
             var m = new Date();
             var dateString = m.getUTCFullYear() +"_"+ (m.getUTCMonth()+1) +"_"+ m.getUTCDate();
-            document.write("<script src='reit_data.js?v=" + dateString + "'><\/script>");
-            document.write("<script src='other_data.js?v=" + dateString + "'><\/script>");
-            document.write("<script src='shipping_data.js?v=" + dateString + "'><\/script>");
-            document.write("<script src='reit_data_app.js?v=" + dateString + "'><\/script>");
+            var prefix = "";
+            if (location.host === "") {
+                prefix = "";
+            } else {
+                prefix = "/reitdata/";
+            }
+
+            document.write("<script src='" + prefix + "reit_data.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "other_data.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "shipping_data.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "reit_data_app.js?v=" + dateString + "'><\/script>");
         </script>
         <style>
             label, input {
