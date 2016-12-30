@@ -134,7 +134,7 @@ do
         IFS='|' read var1 var2 current_period var3 current_dpu current_ttl_dpu current_ttl_dpu_currency current_yield current_nav current_gearing current_asset_type <<< "$reit_other_data"
         
         if [ ! -z "$prev_closed_currency" ] && [ ! "$prev_closed_currency" = "${current_ttl_dpu_currency}" ] ; then
-            if [ ! -z "$current_ttl_dpu" ] && (( $(echo "$current_ttl_dpu > 0" | bc -l) )) ; then
+            if [ ! -z "$current_ttl_dpu" ] && (( $(echo "$current_ttl_dpu 0" | awk '{if($1 > $2) print 1; else print 0}' ) )) ; then
                 current_ttl_dpu=`curl "http://www.xe.com/currencyconverter/convert/?Amount=${current_ttl_dpu}&From=${current_ttl_dpu_currency}&To=${prev_closed_currency}" | grep -Eo 'uccResultAmount..[0-9]+.[0-9]+' | grep -Eo '[0-9]+.[0-9]+'`
                 echo "Ttl DPU Price ${prev_closed_currency}: $current_ttl_dpu"
             fi
