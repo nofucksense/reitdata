@@ -4,10 +4,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://use.fontawesome.com/edca3d70e6.js"></script>
         <script>
             var m = new Date();
             var dateString = m.getUTCFullYear() +"_"+ (m.getUTCMonth()+1) +"_"+ m.getUTCDate();
@@ -16,7 +14,6 @@
             document.write("<script src='shipping_data.js?v=" + dateString + "'><\/script>");
             document.write("<script src='reit_data_app.js?v=" + dateString + "'><\/script>");
         </script>
-        <script src="https://use.fontawesome.com/edca3d70e6.js"></script>
         <style>
             label, input {
                 font-family:Verdana; font-size:7pt;
@@ -38,15 +35,13 @@
                 color: white;
             }
         </style>
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     </head>
     <body>
-        <div ng-app="reitDataApp" ng-controller="reitDataCtrl" ng-init="init()" class="container-fluid">
+        <div id="appReit" ng-controller="reitDataCtrl" ng-init="init()" class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
-                    <span ng_click="showDiv=!showDiv">For KK Testing. Pls click!</span>
-                </div>
-            </div>
-            <div class="row" ng-show="showDiv || debugMode">
                 <div class="col-md-12">
                     <form class="form">
                         <div class="form-group">
@@ -125,6 +120,13 @@
                             <tfoot></tfoot>
                         </table>
                     </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="appShipping" ng-controller="shippingDataCtrl" ng-init="init()" class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
                             <colgroup>
@@ -139,34 +141,34 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                <td ng-click="sortByShipping='descr';reverseShipping=!reverseShipping">
+                                <td ng-click="sortBy='descr';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Trust </span>
                                 </td>
-                                <td ng-click="sortByShipping='period';reverseShipping=!reverseShipping">
+                                <td ng-click="sortBy='period';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
                                 </td>
-                                <td ng-click="sortByShipping='prevClosed';reverseShipping=!reverseShipping">
+                                <td ng-click="sortBy='prevClosed';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
                                 </td>
-                                <td ng-click="sortByShipping='dpu';reverseShipping=!reverseShipping">
+                                <td ng-click="sortBy='dpu';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPU cts</span>
                                 </td>
-                                <td ng-click="sortByShipping='yield';reverseShipping=!reverseShipping">
+                                <td ng-click="sortBy='yield';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
                                 </td>
-                                <td ng-click="sortByShipping='nav';reverseShipping=!reverseShipping">
+                                <td ng-click="sortBy='nav';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> NAV</span>
                                 </td>
                                 <!--td ng-click="sortBy='gearing';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Gearing </span>
                                 </td-->
-                                <td ng-click="sortByShipping='assetType';reverseShipping=!reverseShipping">
+                                <td ng-click="sortBy='assetType';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Assets Type </span>
                                 </td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="shippingData in shippingDatas | filter:descrFilter | orderBy:sortByShipping:reverseShipping">
+                                <tr ng-repeat="shippingData in shippingDatas | orderBy:sortBy:reverse">
                                 <td id="{{ shippingData.code }}">
                                 <p><span> {{ shippingData.descr }} </span></p>
                                 </td>
@@ -196,6 +198,13 @@
                             <tfoot></tfoot>
                         </table>
                     </div>
+                </div>
+            </div>
+        </div>
+            
+        <div id="appOther" ng-controller="otherDataCtrl" ng-init="init()" class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
                             <colgroup>
@@ -210,34 +219,34 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                <td ng-click="sortByOther='descr';reverseOther=!reverseOther">
+                                <td ng-click="sortBy='descr';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Trust </span>
                                 </td>
-                                <td ng-click="sortByOther='period';reverseOther=!reverseOther">
+                                <td ng-click="sortBy='period';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
                                 </td>
-                                <td ng-click="sortByOther='prevClosed';reverseOther=!reverseOther">
+                                <td ng-click="sortBy='prevClosed';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
                                 </td>
-                                <td ng-click="sortByOther='dpu';reverseOther=!reverseOther">
+                                <td ng-click="sortBy='dpu';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPU cts</span>
                                 </td>
-                                <td ng-click="sortByOther='yield';reverseOther=!reverseOther">
+                                <td ng-click="sortBy='yield';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
                                 </td>
-                                <td ng-click="sortByOther='nav';reverseOther=!reverseOther">
+                                <td ng-click="sortBy='nav';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> NAV</span>
                                 </td>
                                 <!--td ng-click="sortBy='gearing';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Gearing </span>
                                 </td-->
-                                <td ng-click="sortByOther='assetType';reverseOther=!reverseOther">
+                                <td ng-click="sortBy='assetType';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Assets Type </span>
                                 </td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="otherData in otherDatas | filter:descrFilter | orderBy:sortByOther:reverseOther">
+                                <tr ng-repeat="otherData in otherDatas | orderBy:sortBy:reverse">
                                 <td id="{{ otherData.code }}">
                                 <p><span> {{ otherData.descr }} </span></p>
                                 </td>
