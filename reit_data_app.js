@@ -13,11 +13,11 @@ app.controller('reitDataCtrl', ['$scope', '$window', function($scope, $window) {
         var ttlDpu = 0;
         var prevClosed = 0;
         
-        if (!Number.isNaN(reitData.ttlDpu)) {
+        if (parseFloat(reitData.ttlDpu) != NaN) {
             ttlDpu = parseFloat(reitData.ttlDpu);
         }
             
-        if (!Number.isNaN(reitData.prevClosed)) {
+        if (parseFloat(reitData.prevClosed) != NaN) {
             prevClosed = parseFloat(reitData.prevClosed);
         }
            
@@ -47,11 +47,11 @@ appShipping.controller('shippingDataCtrl', ['$scope', '$window', function($scope
         var ttlDpu = 0;
         var prevClosed = 0;
         
-        if (!Number.isNaN(shippingData.ttlDpu)) {
+        if (parseFloat(shippingData.ttlDpu) != NaN) {
             ttlDpu = parseFloat(shippingData.ttlDpu);
         }
             
-        if (!Number.isNaN(shippingData.prevClosed)) {
+        if (parseFloat(shippingData.prevClosed) != NaN) {
             prevClosed = parseFloat(shippingData.prevClosed);
         }
            
@@ -81,11 +81,11 @@ appOther.controller('otherDataCtrl', ['$scope', '$window', function($scope, $win
         var ttlDpu = 0;
         var prevClosed = 0;
         
-        if (!Number.isNaN(otherData.ttlDpu)) {
+        if (parseFloat(otherData.ttlDpu) != NaN) {
             ttlDpu = parseFloat(otherData.ttlDpu);
         }
             
-        if (!Number.isNaN(otherData.prevClosed)) {
+        if (parseFloat(otherData.prevClosed) != NaN) {
             prevClosed = parseFloat(otherData.prevClosed);
         }
            
