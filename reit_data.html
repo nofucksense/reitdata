@@ -20,6 +20,7 @@
             document.write("<script src='" + prefix + "reit_data.js?v=" + dateString + "'><\/script>");
             document.write("<script src='" + prefix + "other_data.js?v=" + dateString + "'><\/script>");
             document.write("<script src='" + prefix + "shipping_data.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "sti_data.js?v=" + dateString + "'><\/script>");
             document.write("<script src='" + prefix + "reit_data_app.js?v=" + dateString + "'><\/script>");
         </script>
         <style>
@@ -83,19 +84,19 @@
                                 <td ng-click="sortBy='period';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
                                 </td>
-                                <td ng-click="sortBy='prevClosed';reverse=!reverse">
+                                <td ng-click="sortBy='displayPrevClosed';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
                                 </td>
-                                <td ng-click="sortBy='dpur';reverse=!reverse">
+                                <td ng-click="sortBy='displayDpu';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPU cts</span>
                                 </td>
-                                <td ng-click="sortBy='yield';reverse=!reverse">
+                                <td ng-click="sortBy='displayYield';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
                                 </td>
-                                <td ng-click="sortBy='nav';reverse=!reverse">
+                                <td ng-click="sortBy='displayNav';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> NAV</span>
                                 </td>
-                                <td ng-click="sortBy='gearing';reverse=!reverse">
+                                <td ng-click="sortBy='displayGearing';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Gearing </span>
                                 </td>
                                 <td ng-click="sortBy='assetType';reverse=!reverse">
@@ -112,19 +113,19 @@
                                 <p><span> {{ reitData.period }} </span></p>
                                 </td>
                                 <td id="{{ reitData.code + '_mkt' }}">
-                                <p><span> {{ reitData.prevClosed | number : 3 }} </span></p>
+                                <p><span> {{ reitData.displayPrevClosed | number : 3 }} </span></p>
                                 </td>
                                 <td id="{{ reitData.code + '_dpu' }}">
-                                <p><span> {{ reitData.dpu }} </span></p>
+                                <p><span> {{ reitData.displayDpu | number : 3 }} </span></p>
                                 </td>
                                 <td id="{{ reitData.code + '_yield' }}">
-                                <p><span> {{ displayYield(reitData) }} </span></p>
+                                <p><span> {{ reitData.displayYield | number : 3 }}% </span></p>
                                 </td>
                                 <td id="{{ reitData.code + '_nav' }}">
-                                <p><span> {{ reitData.nav }} </span></p>
+                                <p><span> ${{ reitData.displayNav | number : 3 }} </span></p>
                                 </td>
                                 <td id="{{ reitData.code + '_gearing' }}">
-                                <p><span> {{ reitData.gearing }} </span></p>
+                                <p><span> {{ reitData.displayGearing | number : 2 }}% </span></p>
                                 </td>
                                 <td id="{{ reitData.code + '_assetType' }}">
                                 <p><span> {{ reitData.assetType }} </span></p>
@@ -161,16 +162,16 @@
                                 <td ng-click="sortBy='period';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
                                 </td>
-                                <td ng-click="sortBy='prevClosed';reverse=!reverse">
+                                <td ng-click="sortBy='displayPrevClosed';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
                                 </td>
-                                <td ng-click="sortBy='dpu';reverse=!reverse">
+                                <td ng-click="sortBy='displayDpu';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPU cts</span>
                                 </td>
-                                <td ng-click="sortBy='yield';reverse=!reverse">
+                                <td ng-click="sortBy='displayYield';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
                                 </td>
-                                <td ng-click="sortBy='nav';reverse=!reverse">
+                                <td ng-click="sortBy='displayNav';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> NAV</span>
                                 </td>
                                 <!--td ng-click="sortBy='gearing';reverse=!reverse">
@@ -190,16 +191,16 @@
                                 <p><span> {{ shippingData.period }} </span></p>
                                 </td>
                                 <td id="{{ shippingData.code + '_mkt' }}">
-                                <p><span> {{ shippingData.prevClosed | number : 3 }} </span></p>
+                                <p><span> {{ shippingData.displayPrevClosed | number : 3 }} </span></p>
                                 </td>
                                 <td id="{{ shippingData.code + '_dpu' }}">
-                                <p><span> {{ shippingData.dpu }} </span></p>
+                                <p><span> {{ shippingData.displayDpu | number : 3 }} </span></p>
                                 </td>
                                 <td id="{{ shippingData.code + '_yield' }}">
-                                <p><span> {{ displayYield(shippingData) }} </span></p>
+                                <p><span> {{ shippingData.displayYield | number : 3 }}% </span></p>
                                 </td>
                                 <td id="{{ shippingData.code + '_nav' }}">
-                                <p><span> {{ shippingData.nav }} </span></p>
+                                <p><span> ${{ shippingData.displayNav | number : 3 }} </span></p>
                                 </td>
                                 <!--td id="{{ shippingData.code + '_gearing' }}">
                                 <p><span> {{ shippingData.gearing }} </span></p>
@@ -239,16 +240,16 @@
                                 <td ng-click="sortBy='period';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
                                 </td>
-                                <td ng-click="sortBy='prevClosed';reverse=!reverse">
+                                <td ng-click="sortBy='displayPrevClosed';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
                                 </td>
-                                <td ng-click="sortBy='dpu';reverse=!reverse">
+                                <td ng-click="sortBy='displayDpu';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPU cts</span>
                                 </td>
-                                <td ng-click="sortBy='yield';reverse=!reverse">
+                                <td ng-click="sortBy='displayYield';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
                                 </td>
-                                <td ng-click="sortBy='nav';reverse=!reverse">
+                                <td ng-click="sortBy='displayNav';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> NAV</span>
                                 </td>
                                 <!--td ng-click="sortBy='gearing';reverse=!reverse">
@@ -268,13 +269,13 @@
                                 <p><span> {{ otherData.period }} </span></p>
                                 </td>
                                 <td id="{{ otherData.code + '_mkt' }}">
-                                <p><span> {{ otherData.prevClosed | number : 3 }} </span></p>
+                                <p><span> {{ otherData.displayPrevClosed | number : 3 }} </span></p>
                                 </td>
                                 <td id="{{ otherData.code + '_dpu' }}">
-                                <p><span> {{ otherData.dpu }} </span></p>
+                                <p><span> {{ otherData.displayDpu | number : 3 }} </span></p>
                                 </td>
                                 <td id="{{ otherData.code + '_yield' }}">
-                                <p><span> {{ displayYield(otherData) }} </span></p>
+                                <p><span> {{ otherData.displayYield | number : 3 }}% </span></p>
                                 </td>
                                 <td id="{{ otherData.code + '_nav' }}">
                                 <p><span> {{ otherData.nav }} </span></p>
@@ -284,6 +285,84 @@
                                 </td-->
                                 <td id="{{ otherData.code + '_assetType' }}">
                                 <p><span> {{ otherData.assetType }} </span></p>
+                                </td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="appSti" ng-controller="stiDataCtrl" ng-init="init()" class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <colgroup>
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-5">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                <td ng-click="sortBy='descr';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Stock </span>
+                                </td>
+                                <td ng-click="sortBy='period';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
+                                </td>
+                                <td ng-click="sortBy='prevClosed';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
+                                </td>
+                                <td ng-click="sortBy='dpu';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPU cts</span>
+                                </td>
+                                <td ng-click="sortBy='yield';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
+                                </td>
+                                <td ng-click="sortBy='nav';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> EPS cts</span>
+                                </td>
+                                <td ng-click="sortBy='gearing';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> PE </span>
+                                </td>
+                                <td ng-click="sortBy='assetType';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Div Breakdown </span>
+                                </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="stiData in stiDatas | orderBy:sortBy:reverse">
+                                <td id="{{ stiData.code }}">
+                                <p><span> {{ stiData.descr }} </span></p>
+                                </td>
+                                <td id="{{ stiData.code + '_period' }}">
+                                <p><span> {{ stiData.period }} </span></p>
+                                </td>
+                                <td id="{{ stiData.code + '_mkt' }}">
+                                <p><span> {{ stiData.prevClosed | number : 3 }} </span></p>
+                                </td>
+                                <td id="{{ stiData.code + '_dpu' }}">
+                                <p><span> {{ stiData.dpu }} </span></p>
+                                </td>
+                                <td id="{{ stiData.code + '_yield' }}">
+                                <p><span> {{ displayYield(stiData) }} </span></p>
+                                </td>
+                                <td id="{{ stiData.code + '_eps_cts' }}">
+                                <p><span> {{ stiData.epsCts }} </span></p>
+                                </td>
+                                <td id="{{ stiData.code + '_pe' }}">
+                                <p><span> {{ stiData.pe }} </span></p>
+                                </td>
+                                <td id="{{ stiData.code + '_divBreakdown' }}">
+                                <p><span> {{ stiData.divBreakdown }} </span></p>
                                 </td>
                                 </tr>
                             </tbody>
