@@ -1,0 +1,3 @@
+#Code|Security|Period|Mkt|DPS cts|Ttl DPU cts|Ttl CPU Curency|Yield|EPS cts|PE|Div Breakdown
+S61|SBSTransit|FY15 (Dec)|2.120|2.700|0.000|SGD|1.274%|5.41|39.19|Interim 1.65ctct ; Final 1.05ct
+C52|ComfortDelGro|FY15 (Dec)|2.470|9.000|0.000|SGD|3.644%|14.07|17.56|Interim 4ct ; Final 5ct

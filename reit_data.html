@@ -21,6 +21,11 @@
             document.write("<script src='" + prefix + "other_data.js?v=" + dateString + "'><\/script>");
             document.write("<script src='" + prefix + "shipping_data.js?v=" + dateString + "'><\/script>");
             document.write("<script src='" + prefix + "sti_data.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "aviation_data.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "transport_data.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "telco_data.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "finance_data.js?v=" + dateString + "'><\/script>");
+            document.write("<script src='" + prefix + "infra_data.js?v=" + dateString + "'><\/script>");
             document.write("<script src='" + prefix + "reit_data_app.js?v=" + dateString + "'><\/script>");
         </script>
         <style>
@@ -65,7 +70,7 @@
                         </div>
                     </form>
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
+                        <table id="reitTable" class="table table-striped table-bordered">
                             <colgroup>
                                 <col class="col-md-1">
                                 <col class="col-md-1">
@@ -78,30 +83,30 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                <td ng-click="sortBy='descr';reverse=!reverse">
+                                <th ng-click="sortBy='descr';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>REIT </span>
-                                </td>
-                                <td ng-click="sortBy='period';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='period';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
-                                </td>
-                                <td ng-click="sortBy='displayPrevClosed';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayPrevClosed';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
-                                </td>
-                                <td ng-click="sortBy='displayDpu';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayDpu';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPU cts</span>
-                                </td>
-                                <td ng-click="sortBy='displayYield';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayYield';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
-                                </td>
-                                <td ng-click="sortBy='displayNav';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayNav';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> NAV</span>
-                                </td>
-                                <td ng-click="sortBy='displayGearing';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayGearing';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Gearing </span>
-                                </td>
-                                <td ng-click="sortBy='assetType';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='assetType';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Assets Type </span>
-                                </td>
+                                </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -156,30 +161,30 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                <td ng-click="sortBy='descr';reverse=!reverse">
+                                <th ng-click="sortBy='descr';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Trust </span>
-                                </td>
-                                <td ng-click="sortBy='period';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='period';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
-                                </td>
-                                <td ng-click="sortBy='displayPrevClosed';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayPrevClosed';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
-                                </td>
-                                <td ng-click="sortBy='displayDpu';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayDpu';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPU cts</span>
-                                </td>
-                                <td ng-click="sortBy='displayYield';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayYield';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
-                                </td>
-                                <td ng-click="sortBy='displayNav';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayNav';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> NAV</span>
-                                </td>
-                                <!--td ng-click="sortBy='gearing';reverse=!reverse">
+                                </th>
+                                <!--th ng-click="sortBy='gearing';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Gearing </span>
-                                </td-->
-                                <td ng-click="sortBy='assetType';reverse=!reverse">
+                                </th-->
+                                <th ng-click="sortBy='assetType';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Assets Type </span>
-                                </td>
+                                </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -234,30 +239,30 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                <td ng-click="sortBy='descr';reverse=!reverse">
+                                <th ng-click="sortBy='descr';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Trust </span>
-                                </td>
-                                <td ng-click="sortBy='period';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='period';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
-                                </td>
-                                <td ng-click="sortBy='displayPrevClosed';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayPrevClosed';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
-                                </td>
-                                <td ng-click="sortBy='displayDpu';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayDpu';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPU cts</span>
-                                </td>
-                                <td ng-click="sortBy='displayYield';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayYield';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
-                                </td>
-                                <td ng-click="sortBy='displayNav';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayNav';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> NAV</span>
-                                </td>
-                                <!--td ng-click="sortBy='gearing';reverse=!reverse">
+                                </th>
+                                <!--th ng-click="sortBy='gearing';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Gearing </span>
-                                </td-->
-                                <td ng-click="sortBy='assetType';reverse=!reverse">
+                                </th-->
+                                <th ng-click="sortBy='assetType';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Assets Type </span>
-                                </td>
+                                </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -312,30 +317,30 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                <td ng-click="sortBy='descr';reverse=!reverse">
+                                <th ng-click="sortBy='descr';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Stock </span>
-                                </td>
-                                <td ng-click="sortBy='period';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='period';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
-                                </td>
-                                <td ng-click="sortBy='prevClosed';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayPrevClosed';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
-                                </td>
-                                <td ng-click="sortBy='dpu';reverse=!reverse">
-                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPU cts</span>
-                                </td>
-                                <td ng-click="sortBy='yield';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayDpu';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPS cts</span>
+                                </th>
+                                <th ng-click="sortBy='displayYield';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
-                                </td>
-                                <td ng-click="sortBy='nav';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayEpsCts';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> EPS cts</span>
-                                </td>
-                                <td ng-click="sortBy='gearing';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='displayPe';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> PE </span>
-                                </td>
-                                <td ng-click="sortBy='assetType';reverse=!reverse">
+                                </th>
+                                <th ng-click="sortBy='divBreakdown';reverse=!reverse">
                                     <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Div Breakdown </span>
-                                </td>
+                                </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -347,22 +352,448 @@
                                 <p><span> {{ stiData.period }} </span></p>
                                 </td>
                                 <td id="{{ stiData.code + '_mkt' }}">
-                                <p><span> {{ stiData.prevClosed | number : 3 }} </span></p>
+                                <p><span> ${{ stiData.displayPrevClosed | number : 3 }} </span></p>
                                 </td>
                                 <td id="{{ stiData.code + '_dpu' }}">
-                                <p><span> {{ stiData.dpu }} </span></p>
+                                <p><span> {{ stiData.displayDpu | number : 2 }} </span></p>
                                 </td>
                                 <td id="{{ stiData.code + '_yield' }}">
-                                <p><span> {{ displayYield(stiData) }} </span></p>
+                                <p><span> {{ stiData.displayYield | number : 3 }}% </span></p>
                                 </td>
                                 <td id="{{ stiData.code + '_eps_cts' }}">
-                                <p><span> {{ stiData.epsCts }} </span></p>
+                                <p><span> {{ stiData.displayEpsCts | number : 2 }} </span></p>
                                 </td>
                                 <td id="{{ stiData.code + '_pe' }}">
-                                <p><span> {{ stiData.pe }} </span></p>
+                                <p><span> {{ stiData.displayPe | number : 2 }} </span></p>
                                 </td>
                                 <td id="{{ stiData.code + '_divBreakdown' }}">
                                 <p><span> {{ stiData.divBreakdown }} </span></p>
+                                </td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="appAviation" ng-controller="aviationDataCtrl" ng-init="init()" class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <colgroup>
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-5">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                <th ng-click="sortBy='descr';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Stock </span>
+                                </th>
+                                <th ng-click="sortBy='period';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
+                                </th>
+                                <th ng-click="sortBy='displayPrevClosed';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
+                                </th>
+                                <th ng-click="sortBy='displayDpu';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPS cts</span>
+                                </th>
+                                <th ng-click="sortBy='displayYield';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
+                                </th>
+                                <th ng-click="sortBy='displayEpsCts';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> EPS cts</span>
+                                </th>
+                                <th ng-click="sortBy='displayPe';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> PE </span>
+                                </th>
+                                <th ng-click="sortBy='divBreakdown';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Div Breakdown </span>
+                                </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="aviationData in aviationDatas | orderBy:sortBy:reverse">
+                                <td id="{{ aviationData.code }}">
+                                <p><span> {{ aviationData.descr }} </span></p>
+                                </td>
+                                <td id="{{ aviationData.code + '_period' }}">
+                                <p><span> {{ aviationData.period }} </span></p>
+                                </td>
+                                <td id="{{ aviationData.code + '_mkt' }}">
+                                <p><span> ${{ aviationData.displayPrevClosed | number : 3 }} </span></p>
+                                </td>
+                                <td id="{{ aviationData.code + '_dpu' }}">
+                                <p><span> {{ aviationData.displayDpu | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ aviationData.code + '_yield' }}">
+                                <p><span> {{ aviationData.displayYield | number : 3 }}% </span></p>
+                                </td>
+                                <td id="{{ aviationData.code + '_eps_cts' }}">
+                                <p><span> {{ aviationData.displayEpsCts | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ aviationData.code + '_pe' }}">
+                                <p><span> {{ aviationData.displayPe | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ aviationData.code + '_divBreakdown' }}">
+                                <p><span> {{ aviationData.divBreakdown }} </span></p>
+                                </td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="appTransport" ng-controller="transportDataCtrl" ng-init="init()" class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <colgroup>
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-5">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                <th ng-click="sortBy='descr';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Stock </span>
+                                </th>
+                                <th ng-click="sortBy='period';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
+                                </th>
+                                <th ng-click="sortBy='displayPrevClosed';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
+                                </th>
+                                <th ng-click="sortBy='displayDpu';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPS cts</span>
+                                </th>
+                                <th ng-click="sortBy='displayYield';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
+                                </th>
+                                <th ng-click="sortBy='displayEpsCts';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> EPS cts</span>
+                                </th>
+                                <th ng-click="sortBy='displayPe';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> PE </span>
+                                </th>
+                                <th ng-click="sortBy='divBreakdown';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Div Breakdown </span>
+                                </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="transportData in transportDatas | orderBy:sortBy:reverse">
+                                <td id="{{ transportData.code }}">
+                                <p><span> {{ transportData.descr }} </span></p>
+                                </td>
+                                <td id="{{ transportData.code + '_period' }}">
+                                <p><span> {{ transportData.period }} </span></p>
+                                </td>
+                                <td id="{{ transportData.code + '_mkt' }}">
+                                <p><span> ${{ transportData.displayPrevClosed | number : 3 }} </span></p>
+                                </td>
+                                <td id="{{ transportData.code + '_dpu' }}">
+                                <p><span> {{ transportData.displayDpu | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ transportData.code + '_yield' }}">
+                                <p><span> {{ transportData.displayYield | number : 3 }}% </span></p>
+                                </td>
+                                <td id="{{ transportData.code + '_eps_cts' }}">
+                                <p><span> {{ transportData.displayEpsCts | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ transportData.code + '_pe' }}">
+                                <p><span> {{ transportData.displayPe | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ transportData.code + '_divBreakdown' }}">
+                                <p><span> {{ transportData.divBreakdown }} </span></p>
+                                </td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="appTelco" ng-controller="telcoDataCtrl" ng-init="init()" class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <colgroup>
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-5">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                <th ng-click="sortBy='descr';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Stock </span>
+                                </th>
+                                <th ng-click="sortBy='period';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
+                                </th>
+                                <th ng-click="sortBy='displayPrevClosed';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
+                                </th>
+                                <th ng-click="sortBy='displayDpu';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPS cts</span>
+                                </th>
+                                <th ng-click="sortBy='displayYield';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
+                                </th>
+                                <th ng-click="sortBy='displayEpsCts';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> EPS cts</span>
+                                </th>
+                                <th ng-click="sortBy='displayPe';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> PE </span>
+                                </th>
+                                <th ng-click="sortBy='divBreakdown';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Div Breakdown </span>
+                                </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="telcoData in telcoDatas | orderBy:sortBy:reverse">
+                                <td id="{{ telcoData.code }}">
+                                <p><span> {{ telcoData.descr }} </span></p>
+                                </td>
+                                <td id="{{ telcoData.code + '_period' }}">
+                                <p><span> {{ telcoData.period }} </span></p>
+                                </td>
+                                <td id="{{ telcoData.code + '_mkt' }}">
+                                <p><span> ${{ telcoData.displayPrevClosed | number : 3 }} </span></p>
+                                </td>
+                                <td id="{{ telcoData.code + '_dpu' }}">
+                                <p><span> {{ telcoData.displayDpu | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ telcoData.code + '_yield' }}">
+                                <p><span> {{ telcoData.displayYield | number : 3 }}% </span></p>
+                                </td>
+                                <td id="{{ telcoData.code + '_eps_cts' }}">
+                                <p><span> {{ telcoData.displayEpsCts | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ telcoData.code + '_pe' }}">
+                                <p><span> {{ telcoData.displayPe | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ telcoData.code + '_divBreakdown' }}">
+                                <p><span> {{ telcoData.divBreakdown }} </span></p>
+                                </td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="appFinance" ng-controller="financeDataCtrl" ng-init="init()" class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <colgroup>
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-4">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                <th ng-click="sortBy='descr';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Stock </span>
+                                </th>
+                                <th ng-click="sortBy='period';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>Period</span>
+                                </th>
+                                <th ng-click="sortBy='displayPrevClosed';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Mkt </span>
+                                </th>
+                                <th ng-click="sortBy='displayNbv';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> NBV </span>
+                                </th>
+                                <th ng-click="sortBy='displayDpu';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span>DPS</span>
+                                </th>
+                                <th ng-click="sortBy='displayYield';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Yield </span>
+                                </th>
+                                <th ng-click="sortBy='displayEpsCts';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> EPS </span>
+                                </th>
+                                <th ng-click="sortBy='displayPe';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> PE </span>
+                                </th>
+                                <th ng-click="sortBy='divBreakdown';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Div Breakdown </span>
+                                </th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="financeData in financeDatas | orderBy:sortBy:reverse">
+                                <tr>
+                                <td id="{{ financeData.code }}">
+                                <p><span> {{ financeData.descr }} </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_period' }}">
+                                <p><span> {{ financeData.period }} </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_mkt' }}">
+                                <p><span> ${{ financeData.displayPrevClosed | number : 3 }} </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_nbv' }}">
+                                <p><span> ${{ financeData.displayNbv | number : 3 }} </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_dpu' }}">
+                                <p><span> ${{ financeData.displayDpu | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_yield' }}">
+                                <p><span> {{ financeData.displayYield | number : 3 }}% </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_eps_cts' }}">
+                                <p><span> ${{ financeData.displayEpsCts | number : 3 }} </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_pe' }}">
+                                <p><span> {{ financeData.displayPe | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_divBreakdown' }}">
+                                <p><span> {{ financeData.divBreakdown }} </span></p>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td id="{{ financeData.code }}_before">
+                                <p><span> &nbsp;&nbsp; </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_period_before' }}">
+                                <p><span> {{ financeData.periodBefore }} </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_mkt_before' }}">
+                                <p><span> &nbsp;&nbsp; </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_nbv_before' }}">
+                                <p><span> ${{ financeData.nbvBefore | number : 3 }} </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_dpu_before' }}">
+                                <p><span> &nbsp;&nbsp; </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_yield_before' }}">
+                                <p><span> &nbsp;&nbsp; </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_eps_cts_before' }}">
+                                <p><span> ${{ financeData.displayEpsCtsBefore | number : 3 }} </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_pe_before' }}">
+                                <p><span> {{ financeData.displayPeBefore | number : 2 }} </span></p>
+                                </td>
+                                <td id="{{ financeData.code + '_divBreakdown_before' }}">
+                                <p><span> &nbsp;&nbsp; </span></p>
+                                </td>
+                                </tr>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="appInfra" ng-controller="infraDataCtrl" ng-init="init()" class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <colgroup>
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <col class="col-md-1">
+                                <!--col class="col-md-1"-->
+                                <col class="col-md-6">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                <th>
+                                    <span>Trust </span>
+                                </th>
+                                <th>
+                                    <span>Period</span>
+                                </th>
+                                <th>
+                                    <span> Mkt </span>
+                                </th>
+                                <th>
+                                    <span>DPS cts</span>
+                                </th>
+                                <th>
+                                    <span> Yield </span>
+                                </th>
+                                <th>
+                                    <span> NAV</span>
+                                </th>
+                                <!--th ng-click="sortBy='gearing';reverse=!reverse">
+                                    <i class="fa fa-sort"></i>&nbsp;&nbsp;<span> Gearing </span>
+                                </th-->
+                                <th>
+                                    <span> Div Breakdown </span>
+                                </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="infraData in infraDatas">
+                                <td id="{{ infraData.code }}">
+                                <p><span> {{ infraData.descr }} </span></p>
+                                </td>
+                                <td id="{{ infraData.code + '_period' }}">
+                                <p><span> {{ infraData.period }} </span></p>
+                                </td>
+                                <td id="{{ infraData.code + '_mkt' }}">
+                                <p><span> ${{ infraData.displayPrevClosed | number : 3 }} </span></p>
+                                </td>
+                                <td id="{{ infraData.code + '_dpu' }}">
+                                <p><span> {{ infraData.dpu }} </span></p>
+                                </td>
+                                <td id="{{ infraData.code + '_yield' }}">
+                                <p><span> {{ infraData.displayYield | number : 3 }}% </span></p>
+                                </td>
+                                <td id="{{ infraData.code + '_nav' }}">
+                                <p><span> {{ infraData.nav }} </span></p>
+                                </td>
+                                <!--td id="{{ infraData.code + '_gearing' }}">
+                                <p><span> {{ infraData.gearing }} </span></p>
+                                </td-->
+                                <td id="{{ infraData.code + 'divBreakdown' }}">
+                                <p><span> {{ infraData.divBreakdown }} </span></p>
                                 </td>
                                 </tr>
                             </tbody>

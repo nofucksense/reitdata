@@ -1,0 +1,5 @@
+#Code|Security|Period|Mkt|NBV|DPS|Ttl DPU cts|Ttl CPU Curency|Yield|EPS cts|PE|Div Breakdown|Period Before|NBV Before|EPS Cts before|PE Before
+D05|DBS|9M16 (Sep)|17.340|18.540|0.600|0|SGD|3.460%|1.90|10.74|Interim 30ct ; Final 30ct|FY15 (Dec)|15.82|1.71|10.14
+O39|OCBC|9M16 (Sep)|8.920|8.310|0.360|0|SGD|4.040%|0.85|10.48|Interim 18ct ; Final 18ct|FY15 (Dec)|8.03|0.95|9.37
+U11|UOB|9M16 (Sep)|20.400|18.540|0.700|0|SGD|3.430%|1.90|10.74|Interim 35ct ; Special Anniversay 20ct ; Final 35ct|FY15 (Dec)|17.84|1.94|10.52
+S41|Hong Leong Fin|9M16 (Sep)|2.140|3.790|0.110|0|SGD|5.140%|0.12|18.56|Interim 4ct ; Final 7ct|FY15 (Dec)|3.80|0.16|13.03

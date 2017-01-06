@@ -1,0 +1,2 @@
+#Code|Security|Period|Mkt|DPS cts|Ttl DPU cts|Ttl CPU Curency|Yield|NAV|Div Breakdown
+AZI|AusNetServices|2H – Mar16|1.640|A4.265|0.000|AUD|5.428%|A$0.82|1H16 A4.265ct ; 2H16 A4.265ct

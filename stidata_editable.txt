@@ -1,0 +1,4 @@
+#Code|Security|Period|Mkt|DPS cts|Ttl DPU cts|Ttl CPU Curency|Yield|EPS cts|PE|Div Breakdown
+S68|SGX|FY16 (Jun)|7.160|28.000|0.000|SGD|3.911%|32.60|21.96|Q1, Q2, Q3 5ct ; Q4 5ct +8ct
+S08|SingPost|FY16 (Mar)|1.465|7.000|0.000|SGD|4.778%|10.86|13.49|Q1, Q2, Q3 1.5ct ; Q4 2.5ct
+T39|SPH|FY16 (Aug)|3.530|18.000|0.000|SGD|5.099%|16.00|22.06|Interim 7ct ; Final 8ct + Special 3ct
