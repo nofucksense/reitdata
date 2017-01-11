@@ -238,6 +238,7 @@ function YieldStockConverterService() {
     service.Converts = Converts;
     service.Convert = Convert;
     service.CalculateYield = CalculateYield;
+    service.CalculatePe = CalculatePe;
     
     return service;
 
@@ -254,8 +255,16 @@ function YieldStockConverterService() {
             reitData.displayEpsCts = parseFloat(reitData.epsCts);
         }
         
-        if (parseFloat(reitData.pe) != NaN) {
-            reitData.displayPe = parseFloat(reitData.pe);
+        CalculatePe(reitData);        
+    }
+    
+    function CalculatePe(reitData) {
+        if (reitData.displayPrevClosed != 0 && reitData.displayEpsCts != 0) {
+            reitData.displayPe = reitData.displayPrevClosed * 100 / reitData.displayEpsCts;
+        } else {
+            if (parseFloat(reitData.pe) != NaN) {
+                reitData.displayPe = parseFloat(reitData.pe);
+            }
         }
     }
     
@@ -272,6 +281,7 @@ function FinanceConverterService() {
     service.Converts = Converts;
     service.Convert = Convert;
     service.CalculateYield = CalculateYield;
+    service.CalculatePe = CalculatePe;
     
     return service;
 
@@ -298,10 +308,25 @@ function FinanceConverterService() {
         if (parseFloat(tmp) != NaN) {
             reitData.displayEpsCtsBefore = parseFloat(tmp);
         }
-
-        tmp = reitData.peBefore.replace(/[A-Z\$%]+/g, "");
-        if (parseFloat(tmp) != NaN) {
-            reitData.displayPeBefore = parseFloat(tmp);
+        
+        CalculatePe(reitData);
+    }
+    
+    function CalculatePe(reitData) {
+        if (reitData.displayPrevClosed != 0 && reitData.displayEpsCts != 0) {
+            reitData.displayPe = reitData.displayPrevClosed / reitData.displayEpsCts;
+        } else {
+            if (parseFloat(reitData.pe) != NaN) {
+                reitData.displayPe = parseFloat(reitData.pe);
+            }
+        }
+        
+        if (reitData.displayPrevClosed != 0 && reitData.displayEpsCtsBefore != 0) {
+            reitData.displayPeBefore = reitData.displayPrevClosed / reitData.displayEpsCtsBefore;
+        } else {
+            if (parseFloat(reitData.peBefore) != NaN) {
+                reitData.displayPeBefore = parseFloat(reitData.peBefore);
+            }
         }
     }
     
