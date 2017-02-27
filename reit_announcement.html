@@ -57,7 +57,7 @@
         <div ng-app="reitAnnouncementApp" ng-controller="reitAnnouncementDataCtrl" ng-init="init()" ng-enter="fetchData()" class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-horizontal" ng-submit="fetchData()">
+                    <form class="form-horizontal" ng-submit="pager.currentPage=0;pager.totalPages=0;fetchData()">
                         <div class="form-group">
                             <label for="period" class="col-md-4 control-label">Announcement Period:</label>
                             <div class="col-md-8">
