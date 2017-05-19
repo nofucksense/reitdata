@@ -7,9 +7,7 @@ DB=$(grep -Eo "DB_NAME',.+'" $WPCONFIG | cut -d "'" -f 3)
 for TABLE in `echo "wp_posts wp_2_posts"` ; do
 	echo $TABLE
 	COMMAND=`cat << EndOfMessage
-	update $TABLE
-	set post_date = now(),
-	post_date_gmt = date_add(now(), interval -8 hour),
+	update $TABLE set
 	post_modified = now(),
 	post_modified_gmt = date_add(now(), interval -8 hour),
 	post_title = concat(date_format(now(), '%M %Y'), ' - updated ', now())
